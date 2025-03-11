@@ -131,6 +131,13 @@
                 <textarea id="text-to-speak" rows="4" class="form-control" placeholder="Enter text to convert to speech"></textarea>
             </div>
         </div>
+        <!-- invoice genaration-->
+        <div class="invoice-genarator">
+            <h2> genarate invoice</h2>
+            <button onclick="genarateinvoice()"> genarate invoice</button>
+            <div id="invoiceDetails"></div>
+
+        </div>
     </div>
 
     <!-- Script for Voice Generation -->
@@ -140,7 +147,27 @@
             var speech = new SpeechSynthesisUtterance(text);
             window.speechSynthesis.speak(speech);
         }
-    </script>
+        const invoiceDetails = {
+            invoiceNumber: "INVC4545454",
+            amount: "$467,000",
+            date: "11 march 2025",
+            status: "pending"
+        }
+        // invoice genarator
+        function generateInvoice() {
+            const invoiceContainer = document.getElementById('invoice-details');
+            invoiceContainer.innerHTML = `
+                <p><strong>InvoiceNumber:</strong> ${invoiceDetails.invoiceNumber}</p>
+                <p><strong>Amount:</strong> ${invoiceDetails.amount}</p>
+                <p><strong>Date:</strong> ${invoiceDetails.date}</p>
+                <p><strong>Status:</strong> ${invoiceDetails.status}</p>
+            `;
+        }
+        
+        
+          
+
+   </script>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

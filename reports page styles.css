@@ -1,0 +1,48 @@
+/* Overal body style */
+* {
+    box-sizing: border-box;
+  }
+body{
+    margin: 0;
+}
+/* Overal header style */
+.report_header{
+    display:flex;
+    align-items: center;
+    justify-content:space-evenly;
+    gap: 20em;
+}
+.report_header_btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#financial-year {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+.report_btn{
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px;
+}
+
+/* Overal main style */
+.report_main{
+    margin-top: 5px;
+}
+.summary_cards{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.card{
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    box-shadow: inset -1px -1px 3px  gray;
+}
+
+/* Overal footer style */

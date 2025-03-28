@@ -1,0 +1,120 @@
+#testimonials img {
+    width: 80px; /* Adjust size as needed */
+    height: 80px; /* Ensure images are square */
+    object-fit: cover; /* Crop image to fit without distortion */
+    border-radius: 50%; /* Makes the image circular */
+    display: block; /* Centers the image */
+    margin: 0 auto 10px; /* Centers horizontally with space below */
+}
+
+.signup-btn {
+    background-color:whitesmoke !important;  /* white background */
+    color: black !important;  /* black text */
+    border: none;
+    padding: 8px 16px;
+    transition: background 0.3s ease;
+    
+}
+
+/* Optional: Slightly lighter on hover */
+.signup-btn:hover {
+    background-color:blue !important;
+}
+
+
+#pricing .shadow {
+    transition: transform 0.3s ease-in-out;
+}
+
+#pricing .shadow:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+#pricing .btn-primary {
+    width: 100%; /* Full-width button */
+    border-radius: 25px; /* Rounded buttons */
+}
+
+/* Contact Section */
+#contact .social-icon {
+    display: inline-block;
+    font-size: 20px;
+    color: #333;
+    margin-right: 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#contact .social-icon:hover {
+    transform: translateY(-3px);
+    color: #007bff; /* Change color on hover */
+}
+
+#contact .form-control {
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#contact .btn-primary {
+    width: 100%;
+    border-radius: 25px;
+}
+
+/* About Section */
+#about img {
+    object-fit: cover;
+    border: 3px solid #007bff;
+    padding: 3px;
+}
+
+/* Leadership Team Styling */
+.row .col-md-4 {
+    margin-bottom: 20px;
+}
+
+/* Rotating Statements - Adjust Size */
+#rotating-statements {
+    max-width: 800px;  /* Increased width */
+    height: 200px;  /* Increased height */
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;  /* Added more padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Increase text size */
+#rotating-statements h4 {
+    font-size: 1.8rem; /* Larger heading */
+    font-weight: bold;
+}
+
+#rotating-statements p {
+    font-size: 1.2rem; /* Larger description text */
+    margin-top: 10px;
+}
+
+/* Animation Setup */
+.statement {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    animation: fadeInOut 20s infinite;
+}
+
+/* Delay Each Statement */
+.statement:nth-child(1) { animation-delay: 0s; }
+.statement:nth-child(2) { animation-delay: 4s; }
+.statement:nth-child(3) { animation-delay: 8s; }
+.statement:nth-child(4) { animation-delay: 12s; }
+.statement:nth-child(5) { animation-delay: 16s; }
+
+/* Fade In & Out Effect */
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    5% { opacity: 1; }
+    20% { opacity: 1; }
+    25% { opacity: 0; }
+    100% { opacity: 0; }
+}

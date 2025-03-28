@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Titans Organization Finance Dashboard: Report page</title>
+    <link rel="stylesheet" href="reports page styles.css">
+</head>
+<body>
+    <header class = "report_header">
+        <h1 class = "report_header_title">Financial Reports and Analytics</h1>
+        <div class="report_header_btn">
+            <label for="financial-year">Financial Year:</label>
+            <select id="financial-year">
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+            </select>
+            <button class = "report_btn" onclick="generateReport()">Generate</button>
+        </div>
+    </header>
+    <main class = "report_main">
+        <div class = "summary_cards">
+            <div class = "card">Total Revenue: $5M</div>
+            <div class = "card">Expenses: $3.5M</div>
+            <div class = "card">Net Profit/Loss: $1.5M</div>
+        </div>
+        <div class="graph_container">
+            <div class = "graphs">
+                <div class = "chart">
+                    <canvas id="line_chart" width="300" height="300" ></canvas>
+                </div>
+                <div class = "chart">
+                    <canvas id="pie_chart" width="300" height="300" ></canvas>
+                </div>
+            </div>
+        </div>
+        <div class = "detailed_report">
+            <div class = "balance_sheet">
+                <p>COMPANY NAME</p>
+                <p>BALANCE SHEET</p>
+                <p>For Year Ended in September 28, 2024(millions)</p>
+                <table>
+                    <tr>
+                        <th>ASSETS</th>
+                        <th>LIABILITIES</th>
+                    </tr>
+                    <tr>
+                        <td>Net Sales</td>
+                        <td>250</td>
+                    </tr>
+                    <tr>
+                        <td>Net Sales</td>
+                        <td>250</td>
+                    </tr>
+                    <tr>
+                        <td>Net Sales</td>
+                        <td>250</td>
+                    </tr>
+                </table>
+            </div>
+            <div class = "income_statement">
+                <p>COMPANY NAME</p>
+                <p>INCOME STATEMENT</p>
+                <p>For Year Ended in September 28, 2024(millions)</p>
+                <table>
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <td>Net Sales</td>
+                        <td>250</td>
+                    </tr>
+                    <tr>
+                        <td>Net Sales</td>
+                        <td>250</td>
+                    </tr>
+                    <tr>
+                        <td>Net Sales</td>
+                        <td>250</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class = "report">
+            <h3>Written Report</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid, iste sunt neque deleniti possimus aspernatur. 
+                Corporis, sunt eligendi quisquam et voluptatibus fuga a asperiores consequuntur voluptate rem dolorum molestias
+                 suscipit magnam dolores officia nesciunt eius ea temporibus ad molestiae? Enim voluptas cupiditate dolores dolore 
+                 voluptate cumque adipisci quae officia rem reiciendis fuga dignissimos nisi ut soluta harum, consectetur inventore 
+                 omnis. Animi praesentium excepturi commodi rerum ex amet placeat soluta iusto quisquam quae quidem, earum quas, 
+                 ducimus quaerat alias possimus nemo, eum repellendus fugit! Praesentium totam veniam expedita soluta consequuntur 
+                debitis vitae excepturi accusamus fugit, id ullam fugiat tenetur earum architecto. Totam quia debitis corrupti error
+                 ipsum itaque, natus minus enim accusantium earum aspernatur est, consequatur aliquam repellat vitae odio exercitationem
+                  laboriosam? Quasi magnam dignissimos reiciendis, ab distinctio rem enim iste! Aliquam, nostrum! Nisi a aliquid eaque! In
+                   laudantium amet esse! Numquam laboriosam neque itaque voluptas harum quia saepe, nulla nisi rem ducimus nesciunt animi labore provident odit repellat laudantium impedit. Architecto accusamus magnam obcaecati accusantium deleniti asperiores eos ex reiciendis deserunt velit laboriosam at molestiae numquam reprehenderit dicta enim dolor, quia perferendis similique, ducimus ad adipisci! Iusto quos veniam vel laborum quidem neque unde exercitationem eum, vero dolore officiis repudiandae qui voluptatem maiores, recusandae dignissimos mollitia asperiores nulla ex impedit cum. Dolore accusamus eligendi, facilis eveniet ipsam quia est quasi voluptatem, rerum modi architecto. Reiciendis eaque hic nulla totam, harum et sapiente officiis doloribus exercitationem voluptas vitae dicta vel architecto, est, consequuntur temporibus quisquam impedit. Labore est impedit iure provident?</p>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src = "chart1.js"></script>
+    <script src = "chart2.js"></script>
+</body>
+</html>

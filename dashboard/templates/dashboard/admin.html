@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>👑 Admin Dashboard</h2>
+<p>Welcome {{ request.user.username }}. You have full access to company-wide data, including all departments, budgets, and staff finances.</p>
+
+<ul>
+  <li>View and manage all departments</li>
+  <li>Approve and track budget allocations</li>
+  <li>Access all financial reports</li>
+  <li>Review salary distribution across departments</li>
+</ul>
+{% endblock %}

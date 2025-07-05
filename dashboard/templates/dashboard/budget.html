@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>💰 Budget Allocation</h2>
+<p>This section allows you to allocate, approve, and monitor department budgets.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Department</th>
+      <th>Allocated Budget</th>
+      <th>Used</th>
+      <th>Remaining</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HR</td>
+      <td>Ksh 2,000,000</td>
+      <td>Ksh 1,200,000</td>
+      <td>Ksh 800,000</td>
+    </tr>
+    <tr>
+      <td>IT</td>
+      <td>Ksh 3,500,000</td>
+      <td>Ksh 2,800,000</td>
+      <td>Ksh 700,000</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

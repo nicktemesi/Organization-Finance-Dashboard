@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>🏢 Company Accountant Dashboard</h2>
+<p>Hi {{ request.user.username }}. Here you manage company-level finances and payroll.</p>
+
+<ul>
+  <li>Approve budget requests from departments</li>
+  <li>Access and issue payslips</li>
+  <li>Monitor overall financial performance</li>
+</ul>
+{% endblock %}

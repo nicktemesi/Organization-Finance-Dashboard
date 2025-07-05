@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>📂 My Department Dashboard</h2>
+<p>Welcome {{ request.user.username }}. You’re managing your department’s financial reports and budget submissions.</p>
+
+<ul>
+  <li>Submit budget requests</li>
+  <li>View department reports</li>
+  <li>Track spending history</li>
+</ul>
+{% endblock %}

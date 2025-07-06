@@ -1,11 +1,19 @@
 {% extends "base.html" %}
-{% block content %}
-<h2>📂 My Department Dashboard</h2>
-<p>Welcome {{ request.user.username }}. You’re managing your department’s financial reports and budget submissions.</p>
 
-<ul>
-  <li>Submit budget requests</li>
-  <li>View department reports</li>
-  <li>Track spending history</li>
-</ul>
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">📈 Department Manager Dashboard</h2>
+
+    <div class="row g-4">
+        <div class="col-md-12">
+            <div class="card border-primary shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">My Department Reports</h5>
+                    <p class="card-text">Only reports and budgets for your own department.</p>
+                    <a href="{% url 'my_department_reports' %}" class="btn btn-primary">View My Reports</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

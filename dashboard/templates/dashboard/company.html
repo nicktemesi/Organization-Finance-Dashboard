@@ -1,11 +1,29 @@
 {% extends "base.html" %}
-{% block content %}
-<h2>🏢 Company Accountant Dashboard</h2>
-<p>Hi {{ request.user.username }}. Here you manage company-level finances and payroll.</p>
 
-<ul>
-  <li>Approve budget requests from departments</li>
-  <li>Access and issue payslips</li>
-  <li>Monitor overall financial performance</li>
-</ul>
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">🏦 Company Accountant Dashboard</h2>
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card border-warning shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Review Budget Allocations</h5>
+                    <p class="card-text">Monitor and approve financial plans for the whole company.</p>
+                    <a href="{% url 'budget_allocation' %}" class="btn btn-warning">View Budgets</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card border-info shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Salary Management</h5>
+                    <p class="card-text">Oversee payslips and approve salary adjustments.</p>
+                    <a href="{% url 'salary_payslips' %}" class="btn btn-info">Manage Payslips</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

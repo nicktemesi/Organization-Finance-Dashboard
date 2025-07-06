@@ -1,12 +1,29 @@
 {% extends "base.html" %}
-{% block content %}
-<h2>👑 Admin Dashboard</h2>
-<p>Welcome {{ request.user.username }}. You have full access to company-wide data, including all departments, budgets, and staff finances.</p>
 
-<ul>
-  <li>View and manage all departments</li>
-  <li>Approve and track budget allocations</li>
-  <li>Access all financial reports</li>
-  <li>Review salary distribution across departments</li>
-</ul>
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">👑 Admin Dashboard</h2>
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card border-primary shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Manage All Departments</h5>
+                    <p class="card-text">View, update and delete departments across the organization.</p>
+                    <a href="{% url 'departments' %}" class="btn btn-primary">Go to Departments</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card border-success shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Company Budget</h5>
+                    <p class="card-text">Control the budget across all departments.</p>
+                    <a href="{% url 'budget_allocation' %}" class="btn btn-success">Allocate Budget</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

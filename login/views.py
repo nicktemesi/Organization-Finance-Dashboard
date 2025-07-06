@@ -1,10 +1,13 @@
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+
 
 class CustomLoginView(LoginView):
     template_name = 'login/login.html'
     redirect_authenticated_user = True
+    success_url = reverse_lazy('dashboard_redirect')
 
 @login_required
 def role_based_dashboard_redirect(request):
@@ -21,18 +24,3 @@ def role_based_dashboard_redirect(request):
     else:
         return redirect('login') # Redirect to login if role is not recognized
 
-@login_required
-def admin_dashboard(request):
-    return render(request, 'dashboard/admin.html')
-
-@login_required
-def company_dashboard(request):
-    return render(request, 'dashboard/company.html')
-
-@login_required
-def all_departments_dashboard(request):
-    return render(request, 'dashboard/departments.html')
-
-@login_required
-def my_department_dashboard(request):
-    return render(request, 'dashboard/my_department.html')

@@ -24,32 +24,58 @@
 
                     {% if request.user.role == 'admin' or request.user.role == 'company_accountant' %}
                         <li class="nav-item">
-                            <a class="nav-link {% if request.path == '/dashboard/budget/' %}active{% endif %}" href="{% url 'budget_allocation' %}">
+                            <a class="nav-link {% if request.path == '/dashboard/budget/' %}active{% endif %}" href="{% url 'budget' %}">
                                 💰 Budget Allocation
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if request.path == '/dashboard/payslips/' %}active{% endif %}" href="{% url 'salary_payslips' %}">
+                            <a class="nav-link {% if request.path == '/dashboard/payslips/' %}active{% endif %}" href="{% url 'payslips' %}">
                                 📄 Salary Payslips
                             </a>
                         </li>
+                    <!--    
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/dashboard/documents/' %}active{% endif %}" href="{% url 'documents' %}">
+                                💸 Financial Documents
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/dashboard/charts/company/' %}active{% endif %}" href="{% url 'company_charts' %}">
+                                💳 Company Charts
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/charts/departments/' %}active{% endif %}" href="{% url 'department_charts' %}">
+                                💵 Department charts
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/dashboard/transactions/' %}active{% endif %}" href="{% url 'transactions' %}">
+                                💳 Transactions
+                            </a>
+                        </li>
                     {% endif %}
-
+--->
                     {% if request.user.role == 'admin' or request.user.role == 'department_accountant' %}
                         <li class="nav-item">
-                            <a class="nav-link {% if request.path == '/dashboard/reports/' %}active{% endif %}" href="{% url 'all_reports' %}">
+                            <a class="nav-link {% if request.path == '/dashboard/reports/' %}active{% endif %}" href="{% url 'reports' %}">
                                 📊 Reports
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if request.path == '/dashboard/departments/' %}active{% endif %}" href="{% url 'departments' %}">
+                            <a class="nav-link {% if request.path == '/dashboard/departments/' %}active{% endif %}" href="{% url 'all_departments_dashboard' %}">
                                 🏢 Departments
                             </a>
                         </li>
                     {% elif request.user.role == 'department_manager' %}
                         <li class="nav-item">
-                            <a class="nav-link {% if request.path == '/dashboard/my-reports/' %}active{% endif %}" href="{% url 'my_department_reports' %}">
-                                📈 My Department Reports
+                            <a class="nav-link {% if request.path == '/dashboard/my-department/' %}active{% endif %}" href="{% url 'my_department_dashboard' %}">
+                                📈 My Department
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/dashboard/my-reports/' %}active{% endif %}" href="{% url 'my_reports' %}">
+                                📊 My Reports
                             </a>
                         </li>
                     {% endif %}
@@ -60,7 +86,7 @@
             <ul class="navbar-nav ms-auto">
                 {% if request.user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">🚪 Logout</a>
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                     </li>
                 {% endif %}
             </ul>

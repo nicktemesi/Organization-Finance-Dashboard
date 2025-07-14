@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ department.name }} Department</h2>
+
+<h4>📋 Description</h4>
+<p>{{ department.description }}</p>
+
+<h4>👥 Staff Members</h4>
+<ul>
+    {% for member in staff %}
+        <li>{{ member.user.get_full_name }} - {{ member.user.role }}</li>
+    {% empty %}
+        <li>No staff in this department yet.</li>
+    {% endfor %}
+</ul>
+
+<h4>💼 Budget</h4>
+{% if budget %}
+    <p>Amount: {{ budget.amount }}</p>
+    <p>Allocated by: {{ budget.allocated_by }}</p>
+{% else %}
+    <p>No budget allocated yet.</p>
+{% endif %}
+
+<h4>📊 Reports</h4>
+<ul>
+    {% for report in reports %}
+        <li>{{ report.title }} — Income: {{ report.total_income }} / Expenses: {{ report.total_expenses }}</li>
+    {% empty %}
+        <li>No reports available.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'all_departments_dashboard' %}" class="btn btn-secondary mt-4">← Back to All Departments</a>
+{% endblock %}

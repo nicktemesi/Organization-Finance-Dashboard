@@ -25,7 +25,11 @@ def company_dashboard(request):
 
 @login_required
 def all_departments_dashboard(request):
-    return render(request, 'dashboard/departments.html')
+    if request.user.role not in ['admin', 'company_accountant', 'department_accountant']:
+        return redirect('login')
+
+    departments = Department.objects.all()
+    return render(request, 'dashboard/departments.html', {'departments': departments})
 
 @login_required
 def my_department_dashboard(request):
@@ -134,4 +138,21 @@ def department_charts_view(request):
 
     return render(request, 'dashboard/charts/department_chart.html', {
         'department_data': department_data
+    })
+
+@login_required
+def department_detail_view(request, dept_id):
+    if request.user.role not in ['admin', 'company_accountant', 'department_accountant']:
+        return redirect('dashboard_redirect')
+
+    department = get_object_or_404(Department, id=dept_id)
+    staff = Employee.objects.filter(department=department)
+    reports = FinancialReport.objects.filter(department=department)
+    budget = BudgetAllocation.objects.filter(department=department).first()
+
+    return render(request, 'dashboard/departments/detail.html', {
+        'department': department,
+        'staff': staff,
+        'reports': reports,
+        'budget': budget,
     })

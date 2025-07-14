@@ -11,6 +11,8 @@ from .views import (
     my_department_reports,
     company_charts_view,
     department_charts_view,
+    department_detail_view
+
 )
 
 urlpatterns = [
@@ -19,6 +21,7 @@ urlpatterns = [
     path('departments/', all_departments_dashboard, name='all_departments_dashboard'),
     path('my-department/', my_department_dashboard, name='my_department_dashboard'),
 
+    path('departments/<int:dept_id>/', department_detail_view, name='department_detail'),
     path('budget/', budget_allocation, name='budget'),
     path('reports/', financial_reports, name='reports'),
     path('my-reports/', my_department_reports, name='my_reports'),

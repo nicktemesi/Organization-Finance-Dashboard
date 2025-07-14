@@ -82,3 +82,20 @@ class FinancialDocument(models.Model):
 
     def __str__(self):
         return f"{self.get_doc_type_display()} - {self.report_period}"
+
+class Transaction(models.Model):
+    TRANSACTION_TYPES = (
+        ('income', 'Income'),
+        ('expense', 'Expense'),
+    )
+
+    department = models.ForeignKey(Department, on_delete=models.SET_NULL, null=True, blank=True)
+    amount = models.DecimalField(max_digits=12, decimal_places=2)
+    type = models.CharField(max_length=10, choices=TRANSACTION_TYPES)
+    description = models.TextField()
+    date = models.DateField()
+    created_by = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        scope = self.department.name if self.department else "Company-wide"
+        return f"{self.get_type_display()} - {scope} - {self.amount}"

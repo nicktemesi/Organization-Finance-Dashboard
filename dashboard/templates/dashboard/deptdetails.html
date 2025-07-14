@@ -2,6 +2,14 @@
 {% block content %}
 <h2>{{ department.name }} Department</h2>
 
+<div class="mb-3">
+    {% if request.user.role == 'admin' %}
+        <a href="{% url 'edit_department' dept_id=department.id %}" class="btn btn-warning btn-sm">✏️ Edit</a>
+        <a href="{% url 'delete_department' dept_id=department.id %}" class="btn btn-danger btn-sm">🗑️ Delete</a>
+    {% endif %}
+</div>
+
+
 <h4>📋 Description</h4>
 <p>{{ department.description }}</p>
 

@@ -11,7 +11,12 @@ from .views import (
     my_department_reports,
     company_charts_view,
     department_charts_view,
-    department_detail_view
+    department_detail_view,
+    edit_department,
+    delete_department,
+    transactions_view,
+    add_transaction_view,
+
 
 )
 
@@ -21,7 +26,13 @@ urlpatterns = [
     path('departments/', all_departments_dashboard, name='all_departments_dashboard'),
     path('my-department/', my_department_dashboard, name='my_department_dashboard'),
 
-    path('departments/<int:dept_id>/', department_detail_view, name='department_detail'),
+    path('department_list/<int:dept_id>/', department_detail_view, name='department_list_view'),
+    path('departments/<int:dept_id>/', department_detail_view, name='department_detail_view'),
+    path('department/<int:dept_id>/edit/', edit_department, name='edit_department'),
+    path('department/<int:dept_id>/delete/', delete_department, name='delete_department'),
+
+    path('transactions/', transactions_view, name='transactions_view'),
+    path('transactions/add/', add_transaction_view, name='add_transaction'),
     path('budget/', budget_allocation, name='budget'),
     path('reports/', financial_reports, name='reports'),
     path('my-reports/', my_department_reports, name='my_reports'),

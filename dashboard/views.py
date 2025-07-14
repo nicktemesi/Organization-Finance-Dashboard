@@ -29,7 +29,7 @@ def all_departments_dashboard(request):
         return redirect('login')
 
     departments = Department.objects.all()
-    return render(request, 'dashboard/departments.html', {'departments': departments})
+    return render(request, 'dashboard/department_list.html', {'departments': departments})
 
 @login_required
 def my_department_dashboard(request):
@@ -156,3 +156,71 @@ def department_detail_view(request, dept_id):
         'reports': reports,
         'budget': budget,
     })
+
+@login_required
+def department_list_view(request):
+    if request.user.role not in ['admin', 'company_accountant', 'department_accountant']:
+        return redirect('login')
+
+    departments = Department.objects.all()
+    return render(request, 'dashboard/department_list.html', {'departments': departments})
+
+from django.http import HttpResponseForbidden
+
+@login_required
+def edit_department(request, dept_id):
+    if request.user.role != 'admin':
+        return HttpResponseForbidden("Only admins can edit departments.")
+    
+    department = get_object_or_404(Department, id=dept_id)
+
+    if request.method == 'POST':
+        new_name = request.POST.get('name')
+        if new_name:
+            department.name = new_name
+            department.save()
+            return redirect('department_detail', dept_id=dept_id)
+
+    return render(request, 'dashboard/edit_department.html', {'department': department})
+
+
+@login_required
+def delete_department(request, dept_id):
+    if request.user.role != 'admin':
+        return HttpResponseForbidden("Only admins can delete departments.")
+    
+    department = get_object_or_404(Department, id=dept_id)
+
+    if request.method == 'POST':
+        department.delete()
+        return redirect('all_departments_dashboard')
+
+    return render(request, 'dashboard/delete_department.html', {'department': department})
+
+@login_required
+def transactions_view(request):
+    if request.user.role not in ['admin', 'company_accountant', 'department_accountant']:
+        return redirect('login')
+
+    transactions = Transaction.objects.select_related('department').all()
+    return render(request, 'dashboard/transactions.html', {
+        'transactions': transactions
+    })
+
+@login_required
+def add_transaction_view(request):
+    if request.user.role not in ['admin', 'company_accountant', 'department_accountant']:
+        return redirect('login')
+
+    if request.method == 'POST':
+        form = TransactionForm(request.POST)
+        if form.is_valid():
+            transaction = form.save(commit=False)
+            transaction.created_by = request.user
+            transaction.save()
+            messages.success(request, "Transaction added successfully!")
+            return redirect('transactions')
+    else:
+        form = TransactionForm()
+
+    return render(request, 'dashboard/add_transaction.html', {'form': form})

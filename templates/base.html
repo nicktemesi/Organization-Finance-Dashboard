@@ -45,6 +45,7 @@
                                 🏢 Departments
                             </a>
                         </li>
+                        
                     {% elif request.user.role == 'department_manager' %}
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == '/dashboard/my-department/' %}active{% endif %}" href="{% url 'my_department_dashboard' %}">
